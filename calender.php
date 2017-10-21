@@ -88,7 +88,9 @@ $total_week = ceil(($last_day + $start_week) / 7);
 $last_week = date('w', strtotime($yy."-".$mm."-".$last_day));
 ?>
 <form name="form" method="post">
+    <input type='button' value='·Î±×¾Æ¿ô' onclick="javascript:window.history.back();">
 	<input type = "hidden" name = "passwd" value = "<?=$passwd?>">
+
 <table width='80%' cellpadding='0' cellspacing='1' bgcolor="#999999">
 <tr>
 <td height="50" align="center" bgcolor="#FFFFFF" colspan="7">
