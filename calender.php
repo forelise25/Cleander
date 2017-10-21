@@ -109,16 +109,25 @@ $today_yy = date('Y');
 $today_mm = date('m');
 // 5. 화면에 표시할 화면의 초기값을 1로 설정
 $day=1;
-
+$cnt =0;
 // 6. 총 주 수에 맞춰서 세로줄 만들기
 for($i=1; $i <= $total_week; $i++){?>
 <tr>
 <?
 	// 7. 총 가로칸 만들기
 	for ($j=0; $j<7; $j++){
+		$cnt++;
+		if($cnt > $start_week){
 ?>
+
 <td width="130" height="120" align="left" valign="top" bgcolor="#FFFFFF" onclick="window.open('details.php?grade=<?=$grade_info?>&year=<?=$yy?>&month=<?=$mm?>&date=<?=$day?>', '', 'width=500, height=500')">
   <?
+		}
+else{
+	?>
+	<td width="130" height="120" align="left" valign="top" bgcolor="#FFFFFF">
+	<?
+}
 	// 8. 첫번째 주이고 시작요일보다 $j가 작거나 마지막주이고 $j가 마지막 요일보다 크면 표시하지 않아야하므로
 	//    그 반대의 경우 -  ! 으로 표현 - 에만 날자를 표시한다.
 	if (!(($i == 1 && $j < $start_week) || ($i == $total_week && $j > $last_week))){

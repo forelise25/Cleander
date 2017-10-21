@@ -78,10 +78,18 @@
 	    $day = substr($date, 8, 2);
    }
 
-
+   if($mode == 'insert'){
   echo "<script> 
-     alert('수정 완료'); 
+     alert('등록되었습니다.'); 
 	 opener.location.reload();
 	 location.href='details.php?grade=$grade&year=$yy&month=$mm&date=$day';
 	  </script> "; 
+   }
+   else{
+	    echo "<script> 
+     alert('수정되었습니다.'); 
+	 opener.location.reload();
+	 location.href='details.php?grade=$grade&year=$yy&month=$mm&date=$day';
+	  </script> "; 
+   }
 	?>
