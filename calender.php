@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+<link rel = "stylesheet" href = "css/form.css">
 <meta http-equiv="content-type" content="text/html;charset=euc-kr">
 <?
   $host="localhost";
@@ -18,7 +20,6 @@
   // while ($rows = mysql_fetch_array ($result)){ 
   //   echo $rows[contents];
   // }
-
   if($passwd == 'mirim'){
 	echo "<meta http-equiv='Refresh' content='0;url=/admin.php'>";
   }
@@ -48,9 +49,9 @@ function sel_yy($yy, $func) {
 	if($yy == '') $yy = date('Y');
 
 	if($func=='') {
-		$str = "<select name='yy'>\n<option value=''></option>\n";
+		$str = "<select name='yy' class = 'selet_cleander'>\n<option value=''></option>\n";
 	} else {
-		$str = "<select name='yy' onChange='$func'>\n<option value=''></option>\n";
+		$str = "<select name='yy'  class = 'selet_cleander' onChange='$func'>\n<option value=''></option>\n";
 	}
 	$gijun = date('Y');
 	for($i=$gijun-1;$i<$gijun+2;$i++) {
@@ -63,9 +64,9 @@ function sel_yy($yy, $func) {
 
 function sel_mm($mm, $func) {
 	if($func=='') {
-		$str = "<select name='mm'>\n";
+		$str = "<select name='mm' class = 'selet_cleander'>\n";
 	} else {
-		$str = "<select name='mm' onChange='$func'>\n";
+		$str = "<select name='mm' onChange='$func' class = 'selet_cleander'>\n";
 	}
 	for($i=1;$i<13;$i++) {
 		if($mm == $i) $str .= "<option value='$i' selected>{$i}</option>";
@@ -87,23 +88,32 @@ $total_week = ceil(($last_day + $start_week) / 7);
 // 4. 마지막 요일 구하기
 $last_week = date('w', strtotime($yy."-".$mm."-".$last_day));
 ?>
+<body background = "img/background.png" style="background-repeat:no-repeat;>
+<center>
 <form name="form" method="post">
-    <input type='button' value='로그아웃' onclick="javascript:window.history.back();">
-	<input type = "hidden" name = "passwd" value = "<?=$passwd?>">
 
-<table width='80%' cellpadding='0' cellspacing='1' bgcolor="#999999">
+	<input type = "hidden" name = "passwd" value = "<?=$passwd?>">
+<table width='1200' cellpadding='10' cellspacing='1'>
+
+<tr cellpadding = "30sp" height = "80sp">
+<td rowspan = "2">
+<img src = "img/logo.png" width = "80" height = "80"></img>
+</td>
+<td align = "right" colspan = "6">
+<a href = "javascript:window.history.back()"> <img src = "img/logout.png" width = "80" align = "right"></img> </a>
+</td></tr>
 <tr>
-<td height="50" align="center" bgcolor="#FFFFFF" colspan="7">
+<td height="50" align="right" colspan="6">
 <?=sel_yy($yy,'submit();')?>년 <?=sel_mm($mm,'submit();')?>월 <!-- <input type="submit" value="보기"> --></td>
 </tr>
 <tr>
-<td width="130" height="30" align="center" bgcolor="#DDDDDD"><b>일</b></td>
-<td width="130" align="center" bgcolor="#DDDDDD"><b>월</b></td>
-<td width="130" align="center" bgcolor="#DDDDDD"><b>화</b></td>
-<td width="130" align="center" bgcolor="#DDDDDD"><b>수</b></td>
-<td width="130" align="center" bgcolor="#DDDDDD"><b>목</b></td>
-<td width="130" align="center" bgcolor="#DDDDDD"><b>금</b></td>
-<td width="130" align="center" bgcolor="#DDDDDD"><b>토</b></td>
+<td class = "day_table" width="130" height="30" align="center"><b>일</b></td>
+<td class = "day_table" width="130" align="center"><b>월</b></td>
+<td class = "day_table" width="130" align="center"><b>화</b></td>
+<td class = "day_table" width="130" align="center"><b>수</b></td>
+<td class = "day_table" width="130" align="center"><b>목</b></td>
+<td class = "day_table" width="130" align="center"><b>금</b></td>
+<td class = "day_table" width="130" align="center"><b>토</b></td>
 </tr>
 
 <?
@@ -122,7 +132,7 @@ for($i=1; $i <= $total_week; $i++){?>
 		if($cnt > $start_week){
 ?>
 
-<td width="130" height="120" align="left" valign="top" bgcolor="#FFFFFF" onclick="window.open('details.php?grade=<?=$grade_info?>&year=<?=$yy?>&month=<?=$mm?>&date=<?=$day?>', '', 'width=500, height=500')">
+<td width="130" height="120" align="right" valign="top" bgcolor="#FFFFFF" onclick="window.open('details.php?grade=<?=$grade_info?>&year=<?=$yy?>&month=<?=$mm?>&date=<?=$day?>', '', 'width=500, height=500')">
   <?
 		}
 else{
@@ -153,7 +163,6 @@ else{
 		// 13. 날자 출력
 		echo $day;
 		echo "<br>";
-
 		if($mm<10 && $day <10) $dtstr = $yy."-0".$mm."-0".$day;
 		else if($mm>=10 && $day < 10) $dtstr = $yy."-".$mm."-0".$day;
 		else if($mm<10 && $day >= 10) $dtstr = $yy."-0".$mm."-".$day;
@@ -161,17 +170,19 @@ else{
 
 	    $query = "select * from sub_category where when_date = '$dtstr' and sub_grade = $grade_info and del_chk='N'";
 	    $result = mysql_query($query, $connect);
-		/*$num =mysql_num_rows($result);
-		echo $num;*/
-	    // $rows = mysql_num_rows($result);
-	    // echo $rows;
+		$num =mysql_num_rows($result);
+		//echo $num;
+	    $rows = mysql_num_rows($result);
+	    //echo $rows;
 	    while($rows = mysql_fetch_array($result)){
+			echo "<div class = div_normal>";
 	    	echo stripslashes($rows[subject]);
 	    	echo "&nbsp;|&nbsp;";
 			echo stripslashes($rows[title]);
+			echo "</div>";
 			echo "<br>";
-	    }
 
+	    }
 
 
 
@@ -196,3 +207,5 @@ else{
 <?}?>
 </table> 
 </form>
+</center>
+</body>

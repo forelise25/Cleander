@@ -13,11 +13,10 @@
   //mysql 연결
   $connect = my_connect($host, $dbid, $dbpass, $dbname);
 
- 
+ //수정눌렀을때 바로 등록 시 
 ?>
 
 <script>
-
   function chk(){
 	  if(!document.insert_classroom.grade.value){
 		  alert("학급 정보를 입력하세요");

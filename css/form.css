@@ -1,0 +1,34 @@
+body{font-family: 'Nanum Gothic';}
+.rounded1{
+	border-radius: 2em;
+	width:230px;
+	height :30px;
+	background-color:white;
+	border-color: #419fff;
+	color: #419fff;
+	font-size:10pt;
+	}
+	.rounded2{
+	border-radius: 2em;
+	width:70px;
+	height :30px;
+	background-color:#419fff;
+	border-color: #419fff;
+	color: white;
+	font-size:10pt;
+	}
+	.day_table{
+	background-color:#419fff;
+	color :white;
+	font-size:13pt;
+	}
+	.selet_cleander{
+	color:#555555;
+	border-color:#419fff;
+	 border-radius: 3px;
+	}
+	.div_normal{
+	background-color: #419fff
+	border-radius: 3px
+	color:white;
+	}
