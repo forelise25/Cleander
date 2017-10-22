@@ -14,12 +14,6 @@
   //mysql ¿¬°á
   $connect = my_connect($host, $dbid, $dbpass, $dbname);
 
-  // $query = "select * from sub_category";
-  // $result = mysql_query($query, $connect);
-  // while ($rows = mysql_fetch_array ($result)){ 
-  //   echo $rows[contents];
-  // }
-
 ?>
 <link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
 <link rel = "stylesheet" href = "css/form.css">

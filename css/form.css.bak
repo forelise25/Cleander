@@ -1,5 +1,4 @@
-body{
-font-family: 'Nanum Gothic';
+body{font-family: 'Nanum Gothic';
 background-repeat:no-repeat;
 }
 .rounded1{
@@ -35,7 +34,7 @@ background-repeat:no-repeat;
 	border-color: #419fff;
 	border-radius: 3em;
 	color:#555555;
-	width:130px;
+	width:250px;
 	height:30px;
 	}
 	.inputround{

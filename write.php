@@ -1,4 +1,7 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+<link rel = "stylesheet" href = "css/form.css">
 <meta http-equiv="content-type" content="text/html;charset=euc-kr">
+<body background = "img/background.png">
 <?
   $host="localhost";
   $dbid="root";
@@ -78,7 +81,10 @@
 } //mode update
 else{ ?> 
 <form name="form" method="post" action = "write_post.php?mode=insert&grade=<?=$grade?>&date=<?=$date?>">
-<select name='subject_name'>
+<center>
+<table cellpadding = "5px">
+<tr align = "center"><td>
+<select class = "selet_cleander" name='subject_name'>
 		<?
 		//mode=insert&grade=201721&date=2017-10-21
 		
@@ -94,14 +100,20 @@ else{ ?>
 		}
 		?>
     </select>
-    <input type="text" id='title' name='title' size = '20' >
+    <input  class = "div_normal" type="text" id='title' name='title' size = '20' placeholder = "  과제 제목을 입력하세요" >
 	<input type="checkbox" name="rank" value="중요">중요
-    <br><br>
-    <textarea id='contents' name='contents' rows='13' cols='50'>
+	</td></tr>
+    <tr align = "center"><td>
+    <textarea class = "textarea_w" id='contents' name='contents' rows='17' cols='45' placeholder = "  과제 내용을 입력하세요" >
     </textarea>
-    <br>
-    <input type="submit" name='submit' value="등록">
+	</td></tr>
+	<tr align = "right"><td>
+    <input class = "inputround" type="submit" name='submit' value="등록">
+	</td></tr>
+	</table>
+	</center>
     <?
 }//mode insert
 ?>
+</body>
    

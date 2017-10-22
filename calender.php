@@ -88,16 +88,16 @@ $total_week = ceil(($last_day + $start_week) / 7);
 // 4. 마지막 요일 구하기
 $last_week = date('w', strtotime($yy."-".$mm."-".$last_day));
 ?>
-<body background = "img/background.png" style="background-repeat:no-repeat;>
+<body background = "img/background.png" style="background-repeat:no-repeat;">
 <center>
 <form name="form" method="post">
 
 	<input type = "hidden" name = "passwd" value = "<?=$passwd?>">
-<table width='1200' cellpadding='10' cellspacing='1'>
+<table width='1000' cellpadding='10' cellspacing='1'>
 
 <tr cellpadding = "30sp" height = "80sp">
 <td rowspan = "2">
-<img src = "img/logo.png" width = "80" height = "80"></img>
+<img src = "img/logo.png" width = "80" height = "80" align='center'></img>
 </td>
 <td align = "right" colspan = "6">
 <a href = "javascript:window.history.back()"> <img src = "img/logout.png" width = "80" align = "right"></img> </a>
@@ -132,7 +132,7 @@ for($i=1; $i <= $total_week; $i++){?>
 		if($cnt > $start_week){
 ?>
 
-<td width="130" height="120" align="right" valign="top" bgcolor="#FFFFFF" onclick="window.open('details.php?grade=<?=$grade_info?>&year=<?=$yy?>&month=<?=$mm?>&date=<?=$day?>', '', 'width=500, height=500')">
+<td width="130" height="120" align="right" valign="top" bgcolor="#FFFFFF" onclick="window.open('details.php?grade=<?=$grade_info?>&year=<?=$yy?>&month=<?=$mm?>&date=<?=$day?>', '', 'width=430, height=445')">
   <?
 		}
 else{
