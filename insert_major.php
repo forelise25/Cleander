@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+<link rel = "stylesheet" href = "css/form.css">
 <meta http-equiv="content-type" content="text/html;charset=euc-kr">
 <?
   $host="localhost";
@@ -31,7 +33,9 @@
     $result = mysql_query($query, $connect);
 	$rows=mysql_fetch_array($result);
 	?>
+	<center>
 	<form name = "insert_major" method="post" action = "insert_major_post.php?mode=update&pk=<?=$pk?>" >
+	<table cellpadding = "5px"><tr><td>
 	<select name='subject_grade'>
 	<? 
 	
@@ -53,6 +57,8 @@ $cnt++;
 		
 	</select>
 	학년<br>
+	</td></tr>
+	<tr><td>
   <select name='subject_major'>
   <? if($rows[subject_major] == "인터랙티브미디어"){ ?>
     <option value = "인터랙티브미디어" selected>인터랙티브미디어
@@ -72,30 +78,45 @@ $cnt++;
     <option value = "뉴미디어솔루션">뉴미디어솔루션
   <? } ?>
 	</select>과<br>
-	과목명: <input type = "text" name = "subject_name" value = <?=stripslashes($rows[subject_name])?>>
+	</td></tr>
+	<tr><td>
+	과목명: <input class = "input_text_2" type = "text" name = "subject_name" value = <?=stripslashes($rows[subject_name])?>>
 	<input type = "button" value = "수정하기" onclick = "javascript:chk()">
+	</td></tr></table>
     </form>
+	</center>
 	<?
     } //if($mode == 'update')
   
   else{
 ?>
 <form name = "insert_major" method="post" action = "insert_major_post.php" >
- <select name='subject_grade'> <!-- 여기서 php로 if문걸어서 select 걸기!-->
+<center>
+<br/>
+<table cellpadding = "5px" height = "200xp"><tr><td>
+ <select class = "input_select"  name='subject_grade'> <!-- 여기서 php로 if문걸어서 select 걸기!-->
 			<option value = "1">1
 			<option value = "2">2
 			<option value = "3">3
 	</select>
 	학년<br>
-	 <select name='subject_major'>
+	</td></tr>
+	<tr><td>
+	 <select class = "input_select" name='subject_major'>
 			<option value = "인터랙티브미디어">인터랙티브미디어
 			<option value = "뉴미디어디자인">뉴미디어디자인
 			<option value = "뉴미디어솔루션">뉴미디어솔루션
 	</select>
 	과<br>
-	과목명: <input type = "text" name = "subject_name">
-	<br>
-	<input type = "button" value = "추가하기" onclick = "javascript:chk()">
+	</td></tr>
+	<tr><td>
+	과목명: <input class = "input_text_2" type = "text" name = "subject_name">
+	</td></tr>
+	<tr><td align = "right">
+	<input class = "input_but" type = "button" value = "추가하기" onclick = "javascript:chk()">
+	</td><tr>
+	</table>
+	</center>
 <?
 	}
 ?>

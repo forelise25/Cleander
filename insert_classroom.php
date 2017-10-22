@@ -1,6 +1,8 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/nanumgothic.css">
+<link rel = "stylesheet" href = "css/form.css">
 <meta http-equiv="content-type" content="text/html;charset=euc-kr">
 <?
-  $host="localhost";
+ $host="localhost";
   $dbid="root";
   $dbpass="1234";
   $dbname="scheduler";
@@ -13,10 +15,11 @@
   //mysql 연결
   $connect = my_connect($host, $dbid, $dbpass, $dbname);
 
- //수정눌렀을때 바로 등록 시 
+ 
 ?>
 
 <script>
+
   function chk(){
 	  if(!document.insert_classroom.grade.value){
 		  alert("학급 정보를 입력하세요");
@@ -43,39 +46,55 @@
 }
 </script>
 <?
-if($mode == 'update'){ //[수정]을 눌렀을 경우
-	$query = "select * from main_category where pk = $pk"; //[수정]을 누른 레코드를 가져옴
+if($mode == 'update'){
+	$query = "select * from main_category where pk = $pk";
 	$result = mysql_query($query, $connect);
 	$rows = mysql_fetch_array($result);
 	?>
-	<form name = "insert_classroom" method="post" action = "insert_classroom_post.php?mode=<?=$mode?>&pk=<?=$rows[pk]?>">
-		학급 정보를 입력해주세요. ex) 201721<br>
-		<input type = "text" name = "grade" value = <?=$rows[grade]?>  maxlength = 6><br>
-		비밀번호를 입력해주세요. (12자리 이내)<br>
-		<input type = "password" name = "passwd" maxlength=12 value = <?=stripslashes($rows[passwd])?>><br>
-		비밀번호를 다시 입력해주세요.<br>
-		<input type = "password" name = "passwd_rechk" maxlength=12 value = <?=stripslashes($rows[passwd])?>><br>
-		<input type = "button" name = "button" value = "등록하기" onclick = "javascript:chk()">
-	</form>
+<center>
+<table><tr><td>
+	<form name = "insert_classroom" method="post" action = "insert_classroom_post.php?mode=<?=$mode?>&pk=<?=$rows[pk]?>" >
+학급 정보를 입력해주세요. ex) 201721
+<br/><br/>
+<input class = "input_text" type = "text" name = "grade" value = <?=$rows[grade]?>  maxlength = 6>
+<br/><br/>
+비밀번호를 입력해주세요. (12자리 이내)
+<br/><br/>
+<input class = "input_text" type = "password" name = "passwd" maxlength=12 value = <?=stripslashes($rows[passwd])?>>
+<br/><br/>
+비밀번호를 다시 입력해주세요.
+<br/><br/>
+<input class = "input_text" type = "password" name = "passwd_rechk" maxlength=12 value = <?=stripslashes($rows[passwd])?>>
+<br/><br/>
+<input class = "input_but" style="margin-right:" type = "button" name = "button" value = "등록하기" onclick = "javascript:chk()">
+</form>
+</td></tr><table>
 	<?
 }
-else{ //새로 등록의 경우
+	else{
 ?>
-	<form name = "insert_classroom" method="post" action = "insert_classroom_post.php" >
-	학급 정보를 입력해주세요. ex) 201721
-	<br>
-	<input type = "text" name = "grade" maxlength = 6>
-	<br>
-	비밀번호를 입력해주세요. (12자리 이내)
-	<br>
-	<input type = "password" name = "passwd" maxlength=12>
-	<br>
-	비밀번호를 다시 입력해주세요.
-	<br>
-	<input type = "password" name = "passwd_rechk" maxlength=12>
-	<br>
-	<input type = "button" name = "button" value = "등록하기" onclick = "javascript:chk()">
-	</form>
+<br><br/>
+<center>
+<table><tr><td>
+<form name = "insert_classroom" method="post" action = "insert_classroom_post.php" >
+학급 정보를 입력해주세요. ex) 201721
+<br><br>
+<input class = "input_text" type = "text" name = "grade" maxlength = 6>
+<br><br>
+비밀번호를 입력해주세요. (12자리 이내)
+<br><br>
+<input class = "input_text" type = "password" name = "passwd" maxlength=12>
+<br><br>
+비밀번호를 다시 입력해주세요.
+<br><br>
+<input  class = "input_text" type = "password" name = "passwd_rechk" maxlength=12>
+<br><br>
+</td></tr>
+<tr><td align = "right">
+<input class = "input_but" type = "button" name = "button" value = "등록하기" onclick = "javascript:chk()">
+</form>
+</td></tr></table>
+</center>
 <?
-}//end of else
+	}
 ?>

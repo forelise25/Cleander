@@ -35,7 +35,7 @@
 
 //echo $subject_name;
     ?>
-
+<center>
     <form name="form" method="post" action = "write_post.php?mode=update&pk=<?=$pk?>&grade=<?=$grade?>&date=<?=$date?>">
 	<select name='subject_name'><?
 	  $query1 = "select * from subject_table where subject_grade = $insert_grade and subject_major = '$class'";
@@ -100,14 +100,14 @@ else{ ?>
 		}
 		?>
     </select>
-    <input  class = "div_normal" type="text" id='title' name='title' size = '20' placeholder = "  과제 제목을 입력하세요" >
+    <input  class = "div_normal_exception" type="text" id='title' name='title' size = '20' placeholder = "  과제 제목을 입력하세요" >
 	<input type="checkbox" name="rank" value="중요">중요
 	</td></tr>
     <tr align = "center"><td>
     <textarea class = "textarea_w" id='contents' name='contents' rows='17' cols='45' placeholder = "  과제 내용을 입력하세요" >
     </textarea>
 	</td></tr>
-	<tr align = "right"><td>
+	<tr align = "center"><td>
     <input class = "inputround" type="submit" name='submit' value="등록">
 	</td></tr>
 	</table>
@@ -115,5 +115,6 @@ else{ ?>
     <?
 }//mode insert
 ?>
+</center>
 </body>
    

@@ -38,7 +38,7 @@
 		   
 		  </tr>
 		  <tr>
-		   <td colspan="2" width = "400" height = "300" bgcolor = #E7FFFF>
+		   <td colspan="2" width = "400" height = "130" bgcolor = #E7FFFF>
 			  <?= stripslashes($rows[contents]) ?>
 			</td>
 		   </tr>

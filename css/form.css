@@ -1,5 +1,4 @@
-body{
-font-family: 'Nanum Gothic';
+body{font-family: 'Nanum Gothic';
 background-repeat:no-repeat;
 }
 .rounded1{
@@ -31,12 +30,34 @@ background-repeat:no-repeat;
 	 border-radius: 3px;
 	}
 	.div_normal{
+	overflow: hidden;
 	background: white;
 	border-color: #419fff;
-	border-radius: 3em;
+	font-size:10pt;
+	color:#ffffff;
+	background-color:#f4acb3;
+	border-radius:4px;
+	padding:2px;
+	}
+	.div_normal_e{
+	overflow: hidden;
+	background: white;
+	border-color: #419fff;
+	font-size:10pt;
 	color:#555555;
-	width:130px;
-	height:30px;
+	background-color:#ffffff;
+	border-radius:4px;
+	padding:2px;
+	}
+	.div_normal_important{
+	overflow: hidden;
+	background: white;
+	border-color: #419fff;
+	font-size:10pt;
+	color:#ffffff;
+	border-radius:4px;
+	background-color:#f06d7a;
+	padding:2px;
 	}
 	.inputround{
 	border-radius: 2em;
@@ -58,3 +79,34 @@ background-repeat:no-repeat;
 	  border:solid #419fff ;
 	  border-radius: 2em;
 	  }
+	.input_but{
+	border-radius: 2em;
+	width:100px;
+	height :30px;
+	background-color:#555555;
+	border-color: #555555;
+	color: white;
+	font-size:10pt;
+	}
+	.input_text{
+	background: white;
+	border-color: #555555;
+	border-radius: 3em;
+	color:#555555;
+	width:450px;
+	height:30px;
+	padding-left:10px;
+	}
+	.input_text_2{
+	background: white;
+	border-color: #555555;
+	border-radius: 3em;
+	color:#555555;
+	width:200px;
+	height:30px;
+	}
+	.input_select{
+	background: white;
+	border-color: #555555;
+	font-size:12pt;
+	}

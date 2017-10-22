@@ -132,12 +132,12 @@ for($i=1; $i <= $total_week; $i++){?>
 		if($cnt > $start_week){
 ?>
 
-<td width="130" height="120" align="right" valign="top" bgcolor="#FFFFFF" onclick="window.open('details.php?grade=<?=$grade_info?>&year=<?=$yy?>&month=<?=$mm?>&date=<?=$day?>', '', 'width=430, height=445')">
+<td width="130" height="120" align="right" valign="top" bgcolor="#FFFFFF" onclick="window.open('details.php?grade=<?=$grade_info?>&year=<?=$yy?>&month=<?=$mm?>&date=<?=$day?>', '', 'width=430, height=445, top=100,left=450')">
   <?
 		}
 else{
 	?>
-	<td width="130" height="120" align="left" valign="top" bgcolor="#FFFFFF">
+	<td width="130" height="30" align="left" valign="top" bgcolor="#FFFFFF">
 	<?
 }
 	// 8. 첫번째 주이고 시작요일보다 $j가 작거나 마지막주이고 $j가 마지막 요일보다 크면 표시하지 않아야하므로
@@ -172,17 +172,38 @@ else{
 	    $result = mysql_query($query, $connect);
 		$num =mysql_num_rows($result);
 		//echo $num;
-	    $rows = mysql_num_rows($result);
 	    //echo $rows;
+		if($num < 4){
 	    while($rows = mysql_fetch_array($result)){
-			echo "<div class = div_normal>";
+			if($rows[rank] == 'Y'){
+			echo "<div class = div_normal_important>";
+			}
+			else{
+				echo "<div class = div_normal>";
+	    	}
+				echo stripslashes($rows[subject]);
+	    	echo "&nbsp;|&nbsp;";
+			$output = substr(stripslashes($rows[title]), 0,8);
+			echo $output;
+			echo "</div>";
+	    }}
+		else{
+			for($i = 0; $i < 3; $i++){
+			$rows = mysql_fetch_array($result);
+			if($rows[rank] == 'Y'){
+			echo "<div class = div_normal_important>";
+			}
+			else{
+				echo "<div class = div_normal>";
+	    	}
 	    	echo stripslashes($rows[subject]);
 	    	echo "&nbsp;|&nbsp;";
-			echo stripslashes($rows[title]);
+			$output = substr(stripslashes($rows[title]), 0,8);
+			echo $output;
 			echo "</div>";
-			echo "<br>";
-
-	    }
+			}
+			echo "+" . ($num - $i) . "개";
+		}
 
 
 

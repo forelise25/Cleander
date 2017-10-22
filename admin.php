@@ -31,7 +31,7 @@
 	<tr style="margin-bottom:2pt;">
 		<td align="center"><b>교실</b></td>
 		<td align="center"><b>비밀번호</b></td>
-		<td align="center"></td>
+		<td align="center"><b>비고</b></td>
 	</tr>
 <?
   $query = "select * from main_category order by grade";
@@ -48,7 +48,7 @@
 		<?=stripslashes($rows[passwd])?>
 		</td>
 		<td align="center">
-			<a href = "javascript:window.open('insert_classroom.php?mode=update&pk=<?=$rows[pk]?>','','width=500,height=500')">수정</a> <font color="#999999"> | </font> <a href = "classroom_del.php?pk=<?=$rows[pk]?>" onclick = "return confirm('정말 삭제하시겠습니까?')">삭제</a>
+			<a href = "javascript:window.open('insert_classroom.php?mode=update&pk=<?=$rows[pk]?>','','width=500,height=350, top=160,left=420')">수정</a> <font color="#999999"> | </font> <a href = "classroom_del.php?pk=<?=$rows[pk]?>" onclick = "return confirm('정말 삭제하시겠습니까?')">삭제</a>
 		</td>
 	</tr>
 <?
@@ -65,17 +65,25 @@
 	<tr align="center">
 		<td align="center" colspan="4"><h3>과목 관리</h3></td>
 	</tr>
+	<tr align="center">
+		<td align="center"><b>학년</b></td>
+	    <td align="center"><b>학과</b></td>
+	    <td align="center"><b>과목</b></td>
+	    <td align="center"><b>비고</b></td>
+	</tr>
 <?
 	$query1 = "select * from subject_table ORDER BY subject_grade ASC , subject_major ASC, id ASC";
 	$result1 = mysql_query($query1,$connect);
+	
 	while ($rows = mysql_fetch_array($result1)){ 
+
 ?>
 	<tr align="center">
 	    <td align="center"><?=$rows[subject_grade]?>학년</td>
 	    <td align="center"><?=$rows[subject_major]?>과</td>
 	    <td align="center"><?=stripslashes($rows[subject_name])?></td>
 	    <td align="center">
-		  <a href = "javascript:window.open('insert_major.php?mode=update&pk=<?=$rows[subject_pk]?>','','width=500,height=500')">수정</a> <font color="#999999">| </font><a href = "major_del.php?pk=<?=$rows[subject_pk]?>" onclick = "return confirm('정말 삭제하시겠습니까?')">삭제</a>
+		  <a href = "javascript:window.open('insert_major.php?mode=update&pk=<?=$rows[subject_pk]?>','','width=400,height=250, left=460, top=200')">수정</a> <font color="#999999">| </font><a href = "major_del.php?pk=<?=$rows[subject_pk]?>" onclick = "return confirm('정말 삭제하시겠습니까?')">삭제</a>
 	    </td>
 	</tr>
 <?
